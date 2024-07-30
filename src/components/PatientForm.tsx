@@ -5,7 +5,9 @@ import { usePatientStore } from '../store/store';
 
 export default function PatientForm() {
 
-    const {patients, addPatient}= usePatientStore()
+    // const {patients, addPatient}= usePatientStore()
+    const addPatient = usePatientStore(state => state.addPatient)
+    const activeID = usePatientStore(state => state.activeID)
 
     //formState recupero el estado actual del formulario
         //Reset => funcion extraida para resetear el formulario
@@ -19,7 +21,7 @@ export default function PatientForm() {
 
     return (
         <div className="md:w-1/2 lg:w-2/5 mx-5">
-            <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+            <h2 className="font-black text-3xl text-center">Seguimiento Pacientes {activeID}</h2>
 
             <p className="text-lg mt-5 text-center mb-10">
                 Añade Pacientes y {''}
